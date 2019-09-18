@@ -18,6 +18,7 @@ decisions = {
 		}
 		allow = {
 			war = no
+			piety = 200
 			NOT = { has_character_modifier = recent_writings }
 		}
 		effect = {

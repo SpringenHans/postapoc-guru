@@ -1,0 +1,9 @@
+inspired_teachings_neutic = {
+	authority = 1
+	years = 25
+}
+
+unenlightened_guru = { # Neutic
+	authority = -3
+	years = 25
+}
