@@ -688,7 +688,7 @@ has_lifestyle_learning_trigger = {
 		trait = scholar
 		trait = theologian
 		trait = mystic
-		trait = faqih
+		#trait = faqih
 		trait = druid
 	}
 }
@@ -707,7 +707,7 @@ is_learned_trigger = {
 		trait = scholarly_theologian
 		trait = mastermind_theologian
 		trait = physician
-		trait = faqih
+		#trait = faqih
 	}
 }
 
@@ -800,7 +800,14 @@ has_crusade_trait_trigger = {
 				religion = raven_tales
 				religion = raven_tales_reformed
 			}
-			trait = thunderbird_warrior
+			trait = raven_warrior
+		}
+		AND = {
+			OR = {
+				religion = atomicist
+				religion = aphite
+			}
+			trait = dragon_soldier
 		}
 	}
 }
@@ -977,13 +984,13 @@ can_be_chancellor_trigger = {
 			OR = {
 				AND = { #Patriarchal religions can only hire males. Matriarchal religions can only hire females.
 					is_female = no 
-					NOT = { liege = { has_religion_feature = religion_matriarchal } } 
+					NOT = { liege = { matriarchal_religion = yes } } 
 				}
 				AND = {
 					is_female = yes 
 					OR = { 
-						liege = { has_religion_feature = religion_matriarchal } 
-						liege = { has_religion_feature = religion_equal } 
+						liege = { matriarchal_religion = yes } 
+						liege = { equal_religion = yes } 
 						liege = { has_religion_feature = religion_feature_midewiwin } 
 					} 
 				}
@@ -1077,13 +1084,13 @@ can_be_marshal_trigger = {
 			OR = {
 				AND = { #Patriarchal religions can only hire males. Matriarchal religions can only hire females.
 					is_female = no 
-					NOT = { liege = { has_religion_feature = religion_matriarchal } } 
+					NOT = { liege = { matriarchal_religion = yes } } 
 				}
 				AND = {
 					is_female = yes 
 					OR = { 
-						liege = { has_religion_feature = religion_matriarchal } 
-						liege = { has_religion_feature = religion_equal } 
+						liege = { matriarchal_religion = yes } 
+						liege = { equal_religion = yes } 
 						liege = { has_religion_feature = religion_feature_midewiwin } 
 					} 
 				}
@@ -1173,13 +1180,13 @@ can_be_treasurer_trigger = {
 			OR = {
 				AND = { #Patriarchal religions can only hire males. Matriarchal religions can only hire females.
 					is_female = no 
-					NOT = { liege = { has_religion_feature = religion_matriarchal } } 
+					NOT = { liege = { matriarchal_religion = yes } } 
 				}
 				AND = {
 					is_female = yes 
 					OR = { 
-						liege = { has_religion_feature = religion_matriarchal } 
-						liege = { has_religion_feature = religion_equal } 
+						liege = { matriarchal_religion = yes } 
+						liege = { equal_religion = yes } 
 						liege = { has_religion_feature = religion_feature_midewiwin } 
 					} 
 				}
@@ -1269,20 +1276,20 @@ can_be_spymaster_trigger = {
 			OR = {
 				AND = { #Patriarchal religions can only hire males. Matriarchal religions can only hire females.
 					is_female = no 
-					NOT = { liege = { has_religion_feature = religion_matriarchal } } 
+					NOT = { liege = { matriarchal_religion = yes } } 
 				}
 				AND = {
 					is_female = yes 
 					OR = { 
-						liege = { has_religion_feature = religion_matriarchal } 
-						liege = { has_religion_feature = religion_equal } 
+						liege = { matriarchal_religion = yes } 
+						liege = { equal_religion = yes } 
 						liege = { has_religion_feature = religion_feature_midewiwin } 
 					} 
 				}
 				trait = horse # So we can have female glitterhoofs! :D
 				liege = { 
 					NOR = {
-						liege = { has_religion_feature = religion_matriarchal } 
+						liege = { matriarchal_religion = yes } 
 						liege = { has_religion_feature = religion_patriarchal } 
 					}
 					OR = {
@@ -1295,7 +1302,7 @@ can_be_spymaster_trigger = {
 					liege = {
 						religion_group = pagan_group
 						NOR = {
-							liege = { has_religion_feature = religion_matriarchal } 
+							liege = { matriarchal_religion = yes } 
 							liege = { has_religion_feature = religion_patriarchal } 
 						}
 					}
@@ -1305,7 +1312,7 @@ can_be_spymaster_trigger = {
 					liege = { 
 						religion = ursuline 
 						NOR = {
-							liege = { has_religion_feature = religion_matriarchal } 
+							liege = { matriarchal_religion = yes } 
 							liege = { has_religion_feature = religion_patriarchal } 
 						}
 					}
@@ -1315,7 +1322,7 @@ can_be_spymaster_trigger = {
 					liege = { 
 						religion = angeline 
 						NOR = {
-							liege = { has_religion_feature = religion_matriarchal } 
+							liege = { matriarchal_religion = yes } 
 							liege = { has_religion_feature = religion_patriarchal } 
 						}
 					}
@@ -1325,7 +1332,7 @@ can_be_spymaster_trigger = {
 					liege = { 
 						religion = gaian 
 						NOR = {
-							liege = { has_religion_feature = religion_matriarchal } 
+							liege = { matriarchal_religion = yes } 
 							liege = { has_religion_feature = religion_patriarchal } 
 						}
 					}
@@ -1335,7 +1342,7 @@ can_be_spymaster_trigger = {
 					liege = { 
 						religion = sol_invicta 
 						NOR = {
-							liege = { has_religion_feature = religion_matriarchal } 
+							liege = { matriarchal_religion = yes } 
 							liege = { has_religion_feature = religion_patriarchal } 
 						}
 					}
@@ -1345,7 +1352,7 @@ can_be_spymaster_trigger = {
 					liege = { 
 						religion = neomayan 
 						NOR = {
-							liege = { has_religion_feature = religion_matriarchal } 
+							liege = { matriarchal_religion = yes } 
 							liege = { has_religion_feature = religion_patriarchal } 
 						}
 					}
@@ -1355,7 +1362,7 @@ can_be_spymaster_trigger = {
 					liege = { 
 						religion = reform 
 						NOR = {
-							liege = { has_religion_feature = religion_matriarchal } 
+							liege = { matriarchal_religion = yes } 
 							liege = { has_religion_feature = religion_patriarchal } 
 						}
 					}
@@ -1440,7 +1447,7 @@ can_be_spiritual_trigger = {
 			OR = {
 				is_female = no
 				religion_allows_female_temple_holders = yes
-				has_religion_feature = religion_matriarchal
+				matriarchal_religion = yes
 			}
 			OR = {
 				is_female = yes
@@ -1506,7 +1513,7 @@ can_be_councilmember_king_trigger = {
 		OR = {
 			AND = { #Patriarchal religions can only hire males. Matriarchal religions can only hire females.
 				is_female = no 
-				NOT = { liege = { has_religion_feature = religion_matriarchal } } 
+				NOT = { liege = { matriarchal_religion = yes } } 
 			}
 			AND = {
 				is_female = yes 
@@ -1570,13 +1577,13 @@ can_be_councilmember_emperor_trigger = {
 			OR = {
 				AND = { #Patriarchal religions can only hire males. Matriarchal religions can only hire females.
 					is_female = no 
-					NOT = { liege = { has_religion_feature = religion_matriarchal } } 
+					NOT = { liege = { matriarchal_religion = yes } } 
 				}
 				AND = {
 					is_female = yes 
 					OR = { 
-						liege = { has_religion_feature = religion_matriarchal } 
-						liege = { has_religion_feature = religion_equal } 
+						liege = { matriarchal_religion = yes } 
+						liege = { equal_religion = yes } 
 						liege = { has_religion_feature = religion_feature_midewiwin } 
 					} 
 				}
@@ -1973,12 +1980,8 @@ block_general_event_trigger = {
 
 gender_equality_trigger = {
 	OR = {
-		religion = gaian
-		religion = ursuline
-		religion = angeline
-		religion = reform
-		religion = neomayan
-		has_religion_feature = religion_equal
+		matriarchal_religion = yes
+		equal_religion = yes
 		has_religion_feature = religion_feature_midewiwin
 		AND = {
 			is_landed = yes
@@ -2011,9 +2014,9 @@ male_can_hold_minor_title_trigger = {
 		custom_tooltip = {
 			text = tooltip_not_matriarchal_liege_religion_feature
 			NOR = {
-				has_religion_feature = religion_matriarchal
+				matriarchal_religion = yes
 				liege = {
-					has_religion_feature = religion_matriarchal
+					matriarchal_religion = yes
 				}
 			}
 		}
@@ -2035,23 +2038,7 @@ female_can_hold_minor_title_trigger = {
 			custom_tooltip = {
 				text = tooltip_feminist_liege_vanilla_religion
 				AND = {
-					OR = {
-						#religion = celtic_pagan_reformed
-						#religion = celtic_pagan
-						religion = reform
-						religion = neognostic
-						religion = ursuline
-						religion = angeline
-						religion = confederated
-						religion = antinomian
-						religion = nonconformist
-						religion = gaian
-						religion = bickertonite
-						religion = strangite
-						religion = neomayan
-						religion = americanist
-						religion = libertarian
-					}
+					has_feminist_religion_trigger = yes
 					liege = { religion = ROOT }
 				}
 			}
@@ -2059,14 +2046,14 @@ female_can_hold_minor_title_trigger = {
 				text = tooltip_feminist_liege_religion_feature
 				AND = {
 					OR = {
-						has_religion_feature = religion_equal
+						equal_religion = yes
 						has_religion_feature = religion_feature_midewiwin
-						has_religion_feature = religion_matriarchal
+						matriarchal_religion = yes
 					}
 					liege = {
-						has_religion_feature = religion_equal
+						equal_religion = yes
 						has_religion_feature = religion_feature_midewiwin
-						has_religion_feature = religion_matriarchal
+						matriarchal_religion = yes
 					}
 				}
 			}
@@ -2112,14 +2099,7 @@ female_can_hold_minor_commander_title_trigger = {
 			custom_tooltip = {
 				text = tooltip_feminist_liege_vanilla_religion
 				AND = {
-					OR = {
-						religion = ursuline
-						religion = angeline
-						religion = gaian
-						religion = sol_invicta
-						religion = neomayan
-						religion = reform
-					}
+					is_feminist_religion_trigger = yes
 					liege = { religion = ROOT }
 				}
 			}
@@ -2127,14 +2107,14 @@ female_can_hold_minor_commander_title_trigger = {
 				text = tooltip_feminist_liege_religion_feature
 				AND = {
 					OR = {
-						has_religion_feature = religion_equal
+						equal_religion = yes
 						has_religion_feature = religion_feature_midewiwin
-						has_religion_feature = religion_matriarchal
+						matriarchal_religion = yes
 					}
 					liege = {
-						has_religion_feature = religion_equal
+						equal_religion = yes
 						has_religion_feature = religion_feature_midewiwin
-						has_religion_feature = religion_matriarchal
+						matriarchal_religion = yes
 					}
 				}
 			}
@@ -2476,10 +2456,10 @@ is_widow_or_widower_trigger = {
 
 FROMs_religion_is_playable_trigger = { #Not touching this unless it causes problems
 	NOR = {
-		AND = { #Means you're not allowed to play Muslims
-			FROM = { religion_group = muslim }
-			NOT = { has_dlc = "The Sword of Islam" }
-		}
+		#AND = { #Means you're not allowed to play Muslims
+		#	FROM = { religion_group = muslim }
+		#	NOT = { has_dlc = "The Sword of Islam" }
+		#}
 		AND = { #Means you're not allowed to play Jewish
 			FROM = { religion_group = jewish_group }
 			NOT = { has_dlc = "Sons of Abraham" }
@@ -2487,52 +2467,52 @@ FROMs_religion_is_playable_trigger = { #Not touching this unless it causes probl
 		AND = { #Means you're not allowed to play (most) Pagans
 			FROM = {
 				religion_group = pagan_group
-				NOT = { religion = bon }
-				NOT = { religion = bon_reformed }
+				#NOT = { religion = bon }
+				#NOT = { religion = bon_reformed }
 			}
 			NOT = { has_dlc = "The Old Gods" }
 		}
-		AND = { #Means you're not allowed to play the Bön religion (Pagan)
-			FROM = { 
-				OR = { 
-					religion = bon
-					religion = bon_reformed
-				}
-			}
-			NOR = {
-				has_dlc = "The Old Gods"
-				has_dlc = "Jade Dragon"
-			}
-		}
+		#AND = { #Means you're not allowed to play the Bön religion (Pagan)
+		#	FROM = { 
+		#		OR = { 
+		#			religion = bon
+		#			religion = bon_reformed
+		#		}
+		#	}
+		#	NOR = {
+		#		has_dlc = "The Old Gods"
+		#		has_dlc = "Jade Dragon"
+		#	}
+		#}
 		AND = { #Means you're not allowed to play the Eastern Religions
 			FROM = { religion_group = indian_group }
-			NOT = { 
-				FROM = { 
-					religion = taoist
-				} 
-			}
+			#NOT = { 
+			#	FROM = { 
+			#		religion = taoist
+			#	} 
+			#}
 			NOT = {	has_dlc = "Rajas of India" }
 		}
-		AND = { #Means you're not allowed to play the Zoroastrians
-			FROM = { religion_group = zoroastrian_group }
-			NOT = { has_dlc = "The Old Gods" }
-		}
-		AND = { #Means you're not allowed to play the Taoist religion 
-			FROM = { religion = taoist }
-			NOR = { 
-				has_dlc = "Jade Dragon"
-				has_dlc = "Rajas of India"
-			}
-		}
+		#AND = { #Means you're not allowed to play the Zoroastrians
+		#	FROM = { religion_group = zoroastrian_group }
+		#	NOT = { has_dlc = "The Old Gods" }
+		#}
+		#AND = { #Means you're not allowed to play the Taoist religion 
+		#	FROM = { religion = taoist }
+		#	NOR = { 
+		#		has_dlc = "Jade Dragon"
+		#		has_dlc = "Rajas of India"
+		#	}
+		#}
 	}
 }
 
 ROOTs_religion_is_playable_trigger = { #For targeted decision where FROM is the player
 	NOR = {
-		AND = { #Means you're not allowed to play Muslims
-			ROOT = { religion_group = muslim }
-			NOT = { has_dlc = "The Sword of Islam" }
-		}
+		#AND = { #Means you're not allowed to play Muslims
+		#	ROOT = { religion_group = muslim }
+		#	NOT = { has_dlc = "The Sword of Islam" }
+		#}
 		AND = { #Means you're not allowed to play Jewish
 			ROOT = { religion_group = jewish_group }
 			NOT = { has_dlc = "Sons of Abraham" }
@@ -2540,43 +2520,43 @@ ROOTs_religion_is_playable_trigger = { #For targeted decision where FROM is the 
 		AND = { #Means you're not allowed to play (most) Pagans
 			ROOT = {
 				religion_group = pagan_group
-				NOT = { religion = bon }
-				NOT = { religion = bon_reformed }
+				#NOT = { religion = bon }
+				#NOT = { religion = bon_reformed }
 			}
 			NOT = { has_dlc = "The Old Gods" }
 		}
-		AND = { #Means you're not allowed to play the Bön religion (Pagan)
-			ROOT = { 
-				OR = { 
-					religion = bon 
-					religion = bon_reformed
-				} 
-			}
-			NOR = {
-				has_dlc = "The Old Gods"
-				has_dlc = "Jade Dragon"
-			}
-		}
+		#AND = { #Means you're not allowed to play the Bön religion (Pagan)
+		#	ROOT = { 
+		#		OR = { 
+		#			religion = bon 
+		#			religion = bon_reformed
+		#		} 
+		#	}
+		#	NOR = {
+		#		has_dlc = "The Old Gods"
+		#		has_dlc = "Jade Dragon"
+		#	}
+		#}
 		AND = { #Means you're not allowed to play the Eastern Religions
 			ROOT = { religion_group = indian_group }
-			NOT = { 
-				ROOT = { 
-					religion = taoist
-				} 
-			}
+			#NOT = { 
+			#	ROOT = { 
+			#		religion = taoist
+			#	} 
+			#}
 			NOT = {	has_dlc = "Rajas of India" }
 		}
-		AND = { #Means you're not allowed to play the Zoroastrians
-			ROOT = { religion_group = zoroastrian_group }
-			NOT = { has_dlc = "The Old Gods" }
-		}
-		AND = { #Means you're not allowed to play the Taoist religion 
-			ROOT = { religion = taoist }
-			NOR = { 
-				has_dlc = "Jade Dragon"
-				has_dlc = "Rajas of India"
-			}
-		}
+		#AND = { #Means you're not allowed to play the Zoroastrians
+		#	ROOT = { religion_group = zoroastrian_group }
+		#	NOT = { has_dlc = "The Old Gods" }
+		#}
+		#AND = { #Means you're not allowed to play the Taoist religion 
+		#	ROOT = { religion = taoist }
+		#	NOR = { 
+		#		has_dlc = "Jade Dragon"
+		#		has_dlc = "Rajas of India"
+		#	}
+		#}
 	}
 }
 
@@ -2589,23 +2569,23 @@ ROOTs_secret_religion_is_playable_trigger = {
 				secret_religion_group  = jewish_group
 				has_dlc = "Sons of Abraham"
 			}
-			AND = {
-				secret_religion_group  = muslim
-				has_dlc = "The Sword of Islam" 
-			}
+			#AND = {
+			#	secret_religion_group  = muslim
+			#	has_dlc = "The Sword of Islam" 
+			#}
 			AND = {
 				secret_religion_group  = indian_group
 				has_dlc = "Rajas of India" 
 			}
-			AND = {
-				OR = {
-					secret_religion = taoist
-					secret_religion = bon
-					secret_religion = bon_reformed
-					secret_religion = khurmazta 
-				}
-				has_dlc = "Jade Dragon" 
-			}
+			#AND = {
+			#	OR = {
+			#		secret_religion = taoist
+			#		secret_religion = bon
+			#		secret_religion = bon_reformed
+			#		secret_religion = khurmazta 
+			#	}
+			#	has_dlc = "Jade Dragon" 
+			#}
 			AND = {
 				secret_religion_group = pagan_group
 				OR = {
@@ -2613,10 +2593,10 @@ ROOTs_secret_religion_is_playable_trigger = {
 					has_dlc = "Holy Fury" 
 				}
 			}
-			AND = {
-				secret_religion_group = zoroastrian_group
-				has_dlc = "The Old Gods"
-			}
+			#AND = {
+			#	secret_religion_group = zoroastrian_group
+			#	has_dlc = "The Old Gods"
+			#}
 		}	
 	}
 
@@ -2630,16 +2610,16 @@ ROOTs_secret_religion_is_playable_trigger = {
 			has_dlc = "Sons of Abraham"
 		}
 	}
-	trigger_if = {
-		limit = {
-			secret_religion_group  = muslim
-			NOT = { has_dlc = "The Sword of Islam" }
-		}
-		AND = {
-			secret_religion_group  = muslim
-			has_dlc = "The Sword of Islam" 
-		}
-	}
+	#trigger_if = {
+	#	limit = {
+	#		secret_religion_group  = muslim
+	#		NOT = { has_dlc = "The Sword of Islam" }
+	#	}
+	#	AND = {
+	#		secret_religion_group  = muslim
+	#		has_dlc = "The Sword of Islam" 
+	#	}
+	#}
 	trigger_if = {
 		limit = {
 			secret_religion_group  = indian_group
@@ -2650,26 +2630,26 @@ ROOTs_secret_religion_is_playable_trigger = {
 				has_dlc = "Rajas of India" 
 		}
 	}
-	trigger_if = {
-		limit = {
-			OR = {
-				secret_religion = taoist
-				secret_religion = bon
-				secret_religion = bon_reformed
-				secret_religion = khurmazta 
-			}
-			NOT = { has_dlc = "Jade Dragon" }
-		}
-		AND = {
-			OR = {
-				secret_religion = taoist
-				secret_religion = bon 
-				#reformed bön prints out as 'bön' and there's no need to display 'bön' twice in the tooltip
-				secret_religion = khurmazta 
-			}
-			has_dlc = "Jade Dragon" 
-		}
-	}
+	#trigger_if = {
+	#	limit = {
+	#		OR = {
+	#			secret_religion = taoist
+	#			secret_religion = bon
+	#			secret_religion = bon_reformed
+	#			secret_religion = khurmazta 
+	#		}
+	#		NOT = { has_dlc = "Jade Dragon" }
+	#	}
+	#	AND = {
+	#		OR = {
+	#			secret_religion = taoist
+	#			secret_religion = bon 
+	#			#reformed bön prints out as 'bön' and there's no need to display 'bön' twice in the tooltip
+	#			secret_religion = khurmazta 
+	#		}
+	#		has_dlc = "Jade Dragon" 
+	#	}
+	#}
 	trigger_if = {
 		limit = {
 			secret_religion_group  = pagan_group
@@ -2686,16 +2666,16 @@ ROOTs_secret_religion_is_playable_trigger = {
 			}
 		}
 	}
-	trigger_if = {
-		limit = {
-			secret_religion_group  = pagan_group
-			NOT = { has_dlc = "The Old Gods" }
-		}
-		AND = {
-			secret_religion_group = zoroastrian_group
-			has_dlc = "The Old Gods"
-		}
-	}
+	#trigger_if = {
+	#	limit = {
+	#		secret_religion_group  = zoroastrian_group
+	#		NOT = { has_dlc = "The Old Gods" }
+	#	}
+	#	AND = {
+	#		secret_religion_group = zoroastrian_group
+	#		has_dlc = "The Old Gods"
+	#	}
+	#}
 }
 
 ###Use the actual is_<family member>_of = scope triggers now
@@ -2982,7 +2962,7 @@ is_monastic_member_trigger = {
 		is_christian_monastic_member_trigger = yes
 		society_member_of = monastic_order_jewish
 		society_member_of = monastic_order_cetic
-		society_member_of = monastic_order_neutic
+		society_member_of = monastic_order_libertarian
 	}
 }
 
@@ -3480,10 +3460,6 @@ is_in_prevs_interesting_society_trigger = {
 			PREV = { interested_in_society = secret_religious_society_cetic }
 		}
 		AND = {
-			society_member_of = secret_religious_society_neutic
-			PREV = { interested_in_society = secret_religious_society_neutic }
-		}
-		AND = {
 			society_member_of = secret_religious_society_gaian
 			PREV = { interested_in_society = secret_religious_society_gaian }
 		}
@@ -3852,12 +3828,6 @@ has_any_char_old_religion = {
 			has_character_flag = character_was_cetic
 	    	any_character = {
 	    		religion = cetic
-	    	}
-	    }
-		AND = {
-			has_character_flag = character_was_neutic
-	    	any_character = {
-	    		religion = neutic
 	    	}
 	    }
 		AND = {
@@ -4526,13 +4496,6 @@ looting_artifact_event_religious_artifacts_trigger = {
 				has_artifact_flag = looted_artifact_tooltip_1
 				has_artifact_flag = cetic
 				ROOT = { religion = cetic }
-			}
-		}
-		NAND = {
-			any_artifact = {
-				has_artifact_flag = looted_artifact_tooltip_1
-				has_artifact_flag = neutic
-				ROOT = { religion = neutic }
 			}
 		}
 		NAND = {
@@ -5927,7 +5890,7 @@ china_offmap_decisions_enabled_trigger = {
 	offmap_china = {
 		NOT = { has_policy = china_isolationist }
 		custom_tooltip = {
-			text = china_offmap_decisions_enabled_trigger_war_tt #"Is at peace with §Y[From.GetTitledFirstName]§!"
+			text = china_offmap_decisions_enabled_trigger_war_tt #"Is at peace with ï¿½Y[From.GetTitledFirstName]ï¿½!"
 			NOT = { governor = { war_with = FROM } }
 		}
 		governor = {
@@ -5966,7 +5929,7 @@ china_offmap_decisions_enabled_trigger = {
 china_offmap_hostile_decisions_enabled_trigger = {
 	offmap_china = {
 		custom_tooltip = {
-			text = china_offmap_decisions_enabled_trigger_war_tt #"Is at peace with §Y[From.GetTitledFirstName]§!"
+			text = china_offmap_decisions_enabled_trigger_war_tt #"Is at peace with ï¿½Y[From.GetTitledFirstName]ï¿½!"
 			NOT = { governor = { war_with = FROM } }
 		}
 		governor = {
@@ -6650,6 +6613,30 @@ root_potentially_interested_in_rivaling_this_trigger = { #must be a character
 current_scope_and_root_make_sense_as_rivals_trigger = {
 	potentially_interested_in_rivaling_root_trigger = yes
 	root_potentially_interested_in_rivaling_this_trigger = yes
+}
+
+#checks whether the current scope has one of the following opinion modifiers against PREV
+this_has_friendly_opinion_modifier_of_prev_trigger = {
+	OR = {
+		has_opinion_modifier = { who = PREV modifier = opinion_budding_friendship }
+		has_opinion_modifier = { who = PREV modifier = opinion_was_praised }
+		has_opinion_modifier = { who = PREV modifier = opinion_charmed }
+		has_opinion_modifier = { who = PREV modifier = opinion_honorable }
+		has_opinion_modifier = { who = PREV modifier = opinion_was_rewarded }
+		has_opinion_modifier = { who = PREV modifier = nice_adventure }
+		has_opinion_modifier = { who = PREV modifier = great_adventure }
+		has_opinion_modifier = { who = PREV modifier = epic_adventure }
+		has_opinion_modifier = { who = PREV modifier = opinion_accomplice }
+		has_opinion_modifier = { who = PREV modifier = opinion_mediator }
+		has_opinion_modifier = { who = PREV modifier = opinion_poet_pen_pal }
+		has_opinion_modifier = { who = PREV modifier = opinion_calmed }
+		has_opinion_modifier = { who = PREV modifier = opinion_cheered_up }
+		has_opinion_modifier = { who = PREV modifier = opinion_teach_virtue }
+		has_opinion_modifier = { who = PREV modifier = opinion_no_cat }
+		has_opinion_modifier = { who = PREV modifier = opinion_feels_appreciated }
+		has_opinion_modifier = { who = PREV modifier = opinion_amused }
+		has_opinion_modifier = { who = PREV modifier = opinion_swayed_3 }
+	}
 }
 
 #checks whether the current scope has one of the following opinion modifiers against ROOT
@@ -7467,7 +7454,7 @@ this_is_spiritual_culture_trigger = { #Not really about culture - Used in AI vot
 }
 this_is_sea_raider_trigger = {
 	OR = { 
-		trait = pirate
+		has_pirate_trait = yes
 		trait = viking
 		trait = ravager
 		trait = seaking
@@ -7863,6 +7850,7 @@ this_has_cool_nickname_trigger = {
 		has_nickname = nick_the_ladder_legs
 		has_nickname = nick_the_peacock
 		has_nickname = nick_the_bellower
+		has_nickname = nick_lastname
 	}
 }
 this_has_super_cool_nickname_trigger = {
@@ -7983,6 +7971,7 @@ this_has_super_cool_nickname_trigger = {
 		has_nickname = nick_the_theologian
 		has_nickname = nick_the_zealot
 		has_nickname = nick_the_benevolent
+		has_nickname = nick_lastname
 	}
 }
 
@@ -7993,7 +7982,7 @@ can_enter_festival_physical_competitions_trigger = {
 		AND = {
 			is_female = no
 			OR = { 
-				NOT = { has_religion_feature = religion_matriarchal }
+				NOT = { matriarchal_religion = yes }
 				is_member_of_any_warrior_lodge_trigger = yes
 				has_character_flag = special_marshal
 			}
@@ -8002,7 +7991,7 @@ can_enter_festival_physical_competitions_trigger = {
 			is_female = yes
 			OR = { 
 				trait = shieldmaiden
-				has_religion_feature = religion_matriarchal 
+				matriarchal_religion = yes 
 				has_character_flag = special_marshal
 				is_member_of_any_warrior_lodge_trigger = yes
 			}
@@ -8856,13 +8845,13 @@ can_still_be_marshal_byzantine_trigger = {
 			OR = {
 				AND = { #Patriarchal religions can only hire males. Matriarchal religions can only hire females.
 					is_female = no 
-					NOT = { liege = { has_religion_feature = religion_matriarchal } } 
+					NOT = { liege = { matriarchal_religion = yes } } 
 				}
 				AND = {
 					is_female = yes 
 					OR = { 
-						liege = { has_religion_feature = religion_matriarchal } 
-						liege = { has_religion_feature = religion_equal } 
+						liege = { matriarchal_religion = yes } 
+						liege = { equal_religion = yes } 
 						liege = { has_religion_feature = religion_feature_midewiwin } 
 					} 
 				}
@@ -8953,14 +8942,7 @@ warrior_trigger = {
 	OR = {
 		AND = {
 			is_female = yes
-			OR = {
-				religion = gaian
-				religion = ursuline
-				religion = angeline
-				religion = reform
-				religion = neomayan
-				religion = sol_invicta
-			}
+			gender_equality_trigger = yes
 		}
 		
 		has_character_flag = special_marshal
@@ -9031,7 +9013,6 @@ has_character_was_religion_flag_trigger = {
 		has_character_flag = character_was_sacred_heart
 		has_character_flag = character_was_gracia_divina
 		has_character_flag = character_was_cetic
-		has_character_flag = character_was_neutic
 		has_character_flag = character_was_gaian
 		has_character_flag = character_was_shinto
 		has_character_flag = character_was_nousthreskeia
@@ -9074,22 +9055,7 @@ has_character_was_religion_flag_trigger = {
 
 # Character has a religion allowing women to hold councillor positions, equal succession laws, etc.
 is_feminist_religion_trigger = {
-	OR = {
-		#religion = celtic_pagan_reformed
-		#religion = celtic_pagan
-		religion = reform
-		religion = neognostic
-		religion = ursuline
-		religion = angeline
-		religion = confederated
-		religion = antinomian
-		religion = nonconformist
-		religion = gaian
-		religion = bickertonite
-		religion = strangite
-		religion = neomayan
-		religion = libertarian
-	}
+	has_feminist_religion_trigger = yes
 }
 
 is_attracted_to_prev = {
@@ -9388,7 +9354,4 @@ is_latin_american_trigger = {
 		culture_group = centrolatino
 		culture_group = colombiano
 		culture_group = venezolano
-		culture_group = portunhol
-		culture_group = portuguese
-	}
 }

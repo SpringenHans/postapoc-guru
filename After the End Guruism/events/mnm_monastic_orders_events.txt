@@ -1801,7 +1801,11 @@ character_event = {
 
 	option = {
 		name = {
-			trigger = { NOT = { religion = cetic } }
+			trigger = { NOR = {
+				religion = cetic 
+				religion = neutic
+				} 
+			}
 			text = EVTOPTA_MNM_4415_A
 		}
 		name = {
